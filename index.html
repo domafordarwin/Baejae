@@ -40,8 +40,8 @@
         const flip = true; // whether to flip the webcam
         webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
 	    
-        //await webcam.setup(); // 원래 코드 request access to the webcam
-        await webcam.setup({ deviceId: devices[1].deviceId });
+        await webcam.setup(); // 원래 코드 request access to the webcam
+        //await webcam.setup({ deviceId: devices[1].deviceId });
 			    
         await webcam.play();
         window.requestAnimationFrame(loop);
@@ -67,7 +67,7 @@
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
+            labelContainer.childNodes[i].innerHTML = classPrediction+devices[1].deviceId;
         }
     }
 </script>
