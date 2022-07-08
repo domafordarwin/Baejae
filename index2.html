@@ -19,6 +19,7 @@
     
         // the link to your model provided by Teachable Machine export panel
         const URL = "https://teachablemachine.withgoogle.com/models/sDyEbFFcX/";
+	const devices = await navigator.mediaDevices.enumerateDevices();
     
         let model, webcam, labelContainer, maxPredictions;
     
@@ -38,6 +39,7 @@
             const flip = false; // whether to flip the webcam
             webcam = new tmImage.Webcam(1280, 720, flip); // width, height, flip
             await webcam.setup(); // request access to the webcam
+	    await webcam.setup({ deviceId: devices[0].deviceId });
             await webcam.play();
             window.requestAnimationFrame(loop);
     
