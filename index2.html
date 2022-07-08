@@ -40,7 +40,7 @@
             const flip = false; // whether to flip the webcam
             webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
             //await webcam.setup(); // request access to the webcam
-	    await webcam.setup({ deviceId: devices[0].deviceId });
+	    await webcam.setup({ deviceId: devices[2].deviceId });
             await webcam.play();
             window.requestAnimationFrame(loop);
     
